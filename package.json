@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/tu-lil/cent-web-dev-w21/issues"
   },
-  "homepage": "https://github.com/tu-lil/cent-web-dev-w21#readme"
+  "homepage": "https://github.com/tu-lil/cent-web-dev-w21#readme",
+  "dependencies": {
+    "connect": "^3.7.0"
+  }
 }
