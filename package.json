@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/tu-lil/cent-web-dev-w21#readme",
   "dependencies": {
-    "connect": "^3.7.0"
+    "express": "^4.17.1"
   }
 }
