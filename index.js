@@ -2,12 +2,22 @@
 var express = require('express');
 var app = express();
 
-// Use the app.use() method to mount a middleware function with a specific path,
-// the app.use() method is used to mount a middleware function, which will respond to any HTTP request made to the root path. 
-app.use('/', function(req, res) {
-    // inside the middleware function, the res.send() method is then used to send the response back.
-    // The res.send() method is basically an Express wrapper that sets the Content-Type header according to the response object type and then sends a response back using the Connect res.end() method. 
+// Express supports the routing of requests using either the app.route(path).VERB(callback)method 
+// or the app.VERB(path,callback)method, where VERB should be replaced with a lowercase HTTP verb.
+// below is example of http GET method
+// This tells Express to execute the middleware function for any HTTP request using the GET verb and directed to the ROOT path.
+app.get('/', function(req, res) {
     res.send('Hello World');
+});
+
+// This tells Express to execute the middleware function for any HTTP request using the GET verb and directed to the INFO path.
+app.get('/info', function(req, res) {
+    res.send('Info');
+});
+
+// This tells Express to execute the middleware function for any HTTP request using the GET verb and directed to the CONTACTS path.
+app.get('/contacts', function(req, res) {
+    res.send('Contact Info');
 });
 
 // the app.listen() method to tell the Express application to listen to the port 3000.
