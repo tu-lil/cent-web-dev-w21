@@ -11,8 +11,47 @@
   <link rel='stylesheet' href='/content/app.css' />
 </head>
 <body>
-  <h1>Welcome to the <%= title %> page</h1>
-  <p>Hello World!</p>
+  <!-- Main navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">My Web App</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/home"><i class="fas fa-lg fa-house-user"></i> Home </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/about"> <i class="far fa-lg fa-file-alt"></i> About </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/services"><i class="fas fa-lg fa-concierge-bell"></i> Services </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/products"> <i class="fab fa-lg fa-product-hunt"></i> Products </a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link" aria-current="page" href="/contact"><i class="fas fa-lg fa-id-badge"></i> Contact Us </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+    <!-- Main Content section -->
+  <main class="container">
+    <div class='bg-light p-5 rounded'>
+      <h1>Welcome to the <%= title %> page</h1>
+      <p>Hello World!</p>
+    </div>
+  </main>
 
   <!-- Scripts section -->
   <script src='/jquery/dist/jquery.min.js'></script>
