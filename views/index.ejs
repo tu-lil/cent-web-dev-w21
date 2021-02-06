@@ -6,6 +6,9 @@
   <div class='bg-light p-5 rounded'>
     <h1 class="display-4">Welcome to the <%= title %> page</h1>
     <p>Hello World!</p>
+    <% if (title === 'Home') { %>
+      <p>Name: <%= contact.firstName %></p>
+    <% } %>
   </div>
 </main>
 

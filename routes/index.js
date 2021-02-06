@@ -1,11 +1,15 @@
 let express = require('express');
 let router = express.Router();
+var bodyParser = require("body-parser"); 
+
+let contact = require('../models/contact')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', 
   { 
-    title: 'Home'
+    title: 'Home',
+    contact: contact
   });
 });
 
@@ -13,7 +17,8 @@ router.get('/', function(req, res, next) {
 router.get('/home', function(req, res, next) {
   res.render('index', 
   { 
-    title: 'Home'
+    title: 'Home',
+    contact: contact
   });
 });
 
@@ -38,14 +43,6 @@ router.get('/services', function(req, res, next) {
   res.render('index', 
   { 
     title: 'Services'
-  });
-});
-
-/* GET contact us page. */
-router.get('/contact', function(req, res, next) {
-  res.render('contacts', 
-  { 
-    title: 'Contact Us'
   });
 });
 
