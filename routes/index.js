@@ -1,6 +1,6 @@
 let express = require('express');
 let router = express.Router();
-var bodyParser = require("body-parser"); 
+let bodyParser = require("body-parser"); 
 
 let contact = require('../models/contact')
 
