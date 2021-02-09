@@ -1,11 +1,12 @@
 {
-  "name": "cent-web-dev-w21",
-  "version": "0.0.0",
-  "private": true,
+  "name": "web-app-w21-a1",
+  "version": "0.0.1",
+  "private": false,
   "scripts": {
     "start": "node ./server.js"
   },
-  "main": "app.js",
+  "main": "server.js",
+  "author": "ooo ooo",
   "engines": {
     "node": "^14.15.4",
     "npm": "^7.5.2"
@@ -21,5 +22,16 @@
     "jquery": "^3.5.1",
     "morgan": "~1.9.1",
     "popper": "^1.0.1"
-  }
+  },
+  "description": "sample app for portfolio website",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tu-lil/cent-web-dev-w21.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tu-lil/cent-web-dev-w21/issues"
+  },
+  "homepage": "https://github.com/tu-lil/cent-web-dev-w21#readme"
 }
