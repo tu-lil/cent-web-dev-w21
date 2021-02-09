@@ -3,15 +3,12 @@
   "version": "0.0.1",
   "private": false,
   "scripts": {
-    "start": "node ./server.js",
-    "test": "",
-    "build": ""
+    "start": "node ./server.js"
   },
   "main": "index.js",
   "author": "ooo ooo",
   "engines": {
-    "node": "^14.15.4",
-    "npm": "^7.5.3"
+    "node": "^14.15.4"
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^5.15.2",
