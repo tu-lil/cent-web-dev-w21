@@ -4,7 +4,7 @@
  * Module dependencies.
  */
 
-let app = require('./config/app');
+let app = require('./server/config/app');
 let debug = require('debug')('cent-web-dev-w21:server');
 let http = require('http');
 
