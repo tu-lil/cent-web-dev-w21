@@ -1,23 +1,13 @@
 let express = require('express');
 let router = express.Router();
 
-// create a reference to the model
-let contact = require('../models/contact')
+let contactController = require('../controllers/contact');
 
 /* GET contact us page. */
-router.get('/', function(req, res, next) {
-  res.render('contact', 
-  { 
-    title: 'Contact Us'
-  });
-});
+router.get('/', contactController.displayContactPage);
 
 /* POST from contact us page. */
-router.post('/', (req, res, next)=> {
-  contact.firstName = req.body.fname;
-  res.redirect('/home');
-});
-
+router.post('/', contactController.processContactInformation);
 
 
 module.exports = router;

@@ -1,50 +1,22 @@
 let express = require('express');
 let router = express.Router();
-let bodyParser = require("body-parser"); 
 
-let contact = require('../models/contact')
-
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', 
-  { 
-    title: 'Home',
-    contact: contact
-  });
-});
+let indexController = require('../controllers/index');
 
 /* GET home page. */
-router.get('/home', function(req, res, next) {
-  res.render('index', 
-  { 
-    title: 'Home',
-    contact: contact
-  });
-});
+router.get('/', indexController.displayHomePage);
+
+/* GET home page. */
+router.get('/home', indexController.displayHomePage);
 
 /* GET about page. */
-router.get('/about', function(req, res, next) {
-  res.render('index', 
-  { 
-    title: 'About'
-  });
-});
+router.get('/about',  indexController.displayAboutPage);
 
 /* GET products page. */
-router.get('/products', function(req, res, next) {
-  res.render('index', 
-  { 
-    title: 'Products'
-  });
-});
+router.get('/products',  indexController.displayProductsPage);
 
 /* GET services page. */
-router.get('/services', function(req, res, next) {
-  res.render('index', 
-  { 
-    title: 'Services'
-  });
-});
+router.get('/services',  indexController.displayServicesPage);
 
 
 module.exports = router;
