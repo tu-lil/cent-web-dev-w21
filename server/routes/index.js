@@ -18,5 +18,19 @@ router.get('/products',  indexController.displayProductsPage);
 /* GET services page. */
 router.get('/services',  indexController.displayServicesPage);
 
+/* GET user login page. */
+router.get('/login',  indexController.displayLoginPage);
+
+/* process submission from user login page. */
+router.post('/login',  indexController.processLoginPage);
+
+/* GET user registration page. */
+router.get('/register',  indexController.displayRegisterPage);
+
+/* POST from user registration page. */
+router.post('/register',  indexController.processRegisterPage);
+
+/* perform user logout. */
+router.get('/logout',  indexController.performLogout);
 
 module.exports = router;

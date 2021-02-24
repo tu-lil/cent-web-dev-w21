@@ -1,6 +1,10 @@
 let express = require('express');
 let router = express.Router();
 
+// enable jwt
+let jwt = require('jsonwebtoken');
+let DB = require('../config/db');
+
 //connect to the book model
 let Book = require('../models/book');
 
@@ -8,17 +12,24 @@ let Book = require('../models/book');
 module.exports.displayBookList = (req, res, next) => {
     Book.find((err, booklist) => {
         if(err){
-        return console.error(err);
+            return console.error(err);
         }else{
             // console.log(booklist);
-            res.render('book/list', {title: 'Book List', books: booklist});
+            res.render('book/list', {
+                title: 'Book List', 
+                books: booklist,
+                displayName: req.user ? req.user.displayName : ''
+            });
         }
     });
 };
 
 /* GET router for the ADD Book page - CREATE */
 module.exports.displayAddBook =  (req, res, next) => {
-    res.render('book/add', {title: 'New Book'});
+    res.render('book/add', {
+        title: 'New Book',
+        displayName: req.user ? req.user.displayName : ''
+    });
 };
 
 /* POST router for the ADD Book page - CREATE */
@@ -50,7 +61,11 @@ module.exports.displayEditBook =  (req, res, next) => {
             res.end(err);
         } else {
             // show the edit view
-            res.render('book/edit', {title: 'Edit Book', book: bookToEdit});
+            res.render('book/edit', {
+                title: 'Edit Book', 
+                book: bookToEdit,
+                displayName: req.user ? req.user.displayName : ''
+            });
         }
     });
 };
