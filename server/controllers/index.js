@@ -119,16 +119,17 @@ module.exports.displayRegisterPage = (req, res, next) => {
 
 module.exports.processRegisterPage = (req, res, next) => {
     // instantiate user object
+    console.log(req)
     let newUser = User({
-        username: req.user.username,
+        username: req.body.username,
         // password: req.body.password
-        displayName: req.user.displayName,
-        email: req.user.email
+        displayName: req.body.displayName,
+        email: req.body.email
     })
 
     console.log(newUser)
 
-    User.register(newUser, req.user.password, (err) => {
+    User.register(newUser, req.body.password, (err) => {
         if(err) {
             console.log('error: inserting new user');
             console.log(err);
@@ -143,7 +144,7 @@ module.exports.processRegisterPage = (req, res, next) => {
             { 
                 title: 'Register',
                 messages: req.flash('registerMessage'),
-                displayName: req.user ? req.user.displayName : ''
+                displayName: req.body ? req.body.displayName : ''
             });
         } else {
             // if no error exists, then registration is successful
@@ -153,7 +154,7 @@ module.exports.processRegisterPage = (req, res, next) => {
             /* TODO - Getting Ready to convert to API
             res.json({success: true, msg: 'User Registered Successfully!'});
             */
-           
+
             return passport.authenticate('local')(req, res, () => {
                 return res.redirect('/book/list');
             })
