@@ -6,6 +6,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { ServicesComponent } from './pages/services/services.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { BookstoreComponent } from './bookstore/bookstore.component'
+import { BookDetailsComponent } from './bookstore/book-details/book-details.component'
 
 
 const routes: Routes = [
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path: 'services', component: ServicesComponent},
   {path: 'contact', component: ContactUsComponent},
   {path: 'products', component: ProductsComponent},
-  {path: 'books', component: BookstoreComponent}
+  {path: 'books', component: BookstoreComponent},
+  {path: 'books/details', component: BookDetailsComponent}
 
 ];
 
