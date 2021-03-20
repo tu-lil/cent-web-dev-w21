@@ -5,14 +5,22 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './partials/header/header.component';
-import { FooterComponent } from './partials/footer/footer.component'; // the app starts with this component
+import { FooterComponent } from './partials/footer/footer.component';
+import { HomeComponent } from './pages/home/home.component';
+import { ServicesComponent } from './pages/services/services.component';
+import { AboutComponent } from './pages/about/about.component';
+import { ContactUsComponent } from './pages/contact-us/contact-us.component'; // the app starts with this component
 
 // decorator
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent // the app starts with this component
+    FooterComponent,
+    HomeComponent,
+    ServicesComponent,
+    AboutComponent,
+    ContactUsComponent // the app starts with this component
   ],
   imports: [
     BrowserModule,
