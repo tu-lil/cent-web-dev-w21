@@ -10,7 +10,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { ServicesComponent } from './pages/services/services.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
-import { ProductsComponent } from './pages/products/products.component'; // the app starts with this component
+import { ProductsComponent } from './pages/products/products.component';
+import { BookStoreComponent } from './store/book-store/book-store.component'; // the app starts with this component
 
 // decorator
 @NgModule({
@@ -22,7 +23,8 @@ import { ProductsComponent } from './pages/products/products.component'; // the 
     ServicesComponent,
     AboutComponent,
     ContactUsComponent,
-    ProductsComponent // the app starts with this component
+    ProductsComponent,
+    BookStoreComponent // the app starts with this component
   ],
   imports: [
     BrowserModule,
