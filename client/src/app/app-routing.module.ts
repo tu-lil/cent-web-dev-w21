@@ -6,7 +6,8 @@ import { AboutComponent } from './pages/about/about.component';
 import { ServicesComponent } from './pages/services/services.component';
 import { ProductsComponent } from './pages/products/products.component';
 import { BookstoreComponent } from './bookstore/bookstore.component'
-import { BookDetailsComponent } from './bookstore/book-details/book-details.component'
+import { BookUpdateComponent } from './bookstore/book-update/book-update.component';
+import { BookAddComponent } from './bookstore/book-add/book-add.component';
 
 
 const routes: Routes = [
@@ -17,8 +18,8 @@ const routes: Routes = [
   {path: 'contact', component: ContactUsComponent},
   {path: 'products', component: ProductsComponent},
   {path: 'books', component: BookstoreComponent},
-  {path: 'books/details', component: BookDetailsComponent},
-  {path: 'books/edit', component: BookDetailsComponent}
+  {path: 'books/add', component: BookAddComponent},
+  {path: 'books/update', component: BookUpdateComponent}
 
 ];
 
