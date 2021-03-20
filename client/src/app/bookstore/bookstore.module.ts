@@ -1,12 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BookstoreComponent } from './bookstore.component'
+import { BookstoreComponent } from './bookstore.component';
+import { BookDetailsComponent } from './book-details/book-details.component'
 
 
 
 @NgModule({
   declarations: [
-    BookstoreComponent
+    BookstoreComponent,
+    BookDetailsComponent
   ],
   imports: [
     CommonModule
