@@ -9,7 +9,8 @@ import { FooterComponent } from './partials/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ServicesComponent } from './pages/services/services.component';
 import { AboutComponent } from './pages/about/about.component';
-import { ContactUsComponent } from './pages/contact-us/contact-us.component'; // the app starts with this component
+import { ContactUsComponent } from './pages/contact-us/contact-us.component';
+import { ProductsComponent } from './pages/products/products.component'; // the app starts with this component
 
 // decorator
 @NgModule({
@@ -20,7 +21,8 @@ import { ContactUsComponent } from './pages/contact-us/contact-us.component'; //
     HomeComponent,
     ServicesComponent,
     AboutComponent,
-    ContactUsComponent // the app starts with this component
+    ContactUsComponent,
+    ProductsComponent // the app starts with this component
   ],
   imports: [
     BrowserModule,
