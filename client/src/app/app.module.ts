@@ -11,7 +11,7 @@ import { ServicesComponent } from './pages/services/services.component';
 import { AboutComponent } from './pages/about/about.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { ProductsComponent } from './pages/products/products.component';
-import { BookStoreComponent } from './store/book-store/book-store.component'; // the app starts with this component
+import { BookstoreComponent } from './bookstore/bookstore.component'; 
 
 // decorator
 @NgModule({
@@ -24,7 +24,7 @@ import { BookStoreComponent } from './store/book-store/book-store.component'; //
     AboutComponent,
     ContactUsComponent,
     ProductsComponent,
-    BookStoreComponent // the app starts with this component
+    BookstoreComponent 
   ],
   imports: [
     BrowserModule,
