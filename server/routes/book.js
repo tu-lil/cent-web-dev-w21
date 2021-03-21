@@ -27,7 +27,7 @@ router.get('/add', requireAuth, bookController.displayAddBook);
 router.post('/add', requireAuth, bookController.processBookCreation);
 
 /* GET router for the EDIT Book page - UPDATE */
-router.get('/edit/:id', requireAuth, bookController.displayEditBook);
+router.get('/edit/:id', bookController.displayEditBook);
 
 /* POST router for the EDIT Book page - UPDATE */
 router.post('/edit/:id', requireAuth, bookController.processBookUpdate);

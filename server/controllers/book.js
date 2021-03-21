@@ -14,9 +14,7 @@ module.exports.displayBookList = (req, res, next) => {
         if(err){
             return console.error(err);
         }else{
-            // console.log(booklist);
-            res.render('book/list', {
-                title: 'Book List', 
+            return res.json({
                 books: booklist,
                 displayName: req.user ? req.user.displayName : ''
             });
@@ -61,8 +59,7 @@ module.exports.displayEditBook =  (req, res, next) => {
             res.end(err);
         } else {
             // show the edit view
-            res.render('book/edit', {
-                title: 'Edit Book', 
+            return res.json({ 
                 book: bookToEdit,
                 displayName: req.user ? req.user.displayName : ''
             });
