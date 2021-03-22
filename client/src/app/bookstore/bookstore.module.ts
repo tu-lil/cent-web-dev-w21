@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { BookstoreComponent } from './bookstore.component';
 import { BookUpdateComponent } from './book-update/book-update.component';
 import { BookAddComponent } from './book-add/book-add.component'
+import { ModelModule } from '../model/model.module';
 
 
 
@@ -13,7 +14,8 @@ import { BookAddComponent } from './book-add/book-add.component'
     BookAddComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    ModelModule
   ],
   exports: [
     BookstoreComponent

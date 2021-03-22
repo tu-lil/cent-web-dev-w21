@@ -8,7 +8,7 @@
             <!-- if close -->
 
             <br />
-            <table class="table table-sm table-responsive-sm table-bordered table-striped table-hover">
+            <table *ngIf="books.length > 0" class="table table-sm table-responsive-sm table-bordered table-striped table-hover">
                 <!-- Header Row -->
                 <thead>
                     <tr >
@@ -27,12 +27,12 @@
                 <!-- Repeatable Template Row -->
                 <tbody>
                 <!--  for(let count = 0; count < books.length; count++) -->
-                    <tr>
-                            <th class="text-center" scope="row">books[count].name</th>
-                            <td class="text-center">books[count].author</td>
-                            <td class="text-center">books[count].published</td>
-                            <td class="text-center">books[count].description</td>
-                            <td class="text-center">books[count].price</td>
+                    <tr *ngFor='let book of books'>
+                            <th class="text-center" scope="row">{{ book.name }}</th>
+                            <td class="text-center">{{ book.author }}</td>
+                            <td class="text-center">{{ book.published }}</td>
+                            <td class="text-center">{{ book.description }}</td>
+                            <td class="text-center">{{ book.price }}</td>
                             <!-- if (typeof displayName == 'string' && displayName) -->
                             <td class="text-center" scope="row">
                                 <a href="/books/update" class="btn btn-primary btn-sm"> <!-- /books[count]._id -->

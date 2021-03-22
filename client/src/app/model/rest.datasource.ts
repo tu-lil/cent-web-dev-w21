@@ -1,0 +1,23 @@
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Book } from './book.model';
+
+const PROTOCOL = 'http';
+const PORT = 3000; // port as on your backend server
+
+// this is to connect to your backend server
+@Injectable()
+export class RestDataSource {
+  baseUrl: string;
+
+  constructor(private http: HttpClient) {
+    this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;
+  }
+
+  getBooks(): Observable<Book[]> {
+    let backendRouterPath = 'book/list' // has to be same as on the backend server
+    return this.http.get<Book[]>(this.baseUrl + backendRouterPath);
+  }
+}
+

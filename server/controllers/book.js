@@ -14,10 +14,9 @@ module.exports.displayBookList = (req, res, next) => {
         if(err){
             return console.error(err);
         }else{
-            return res.json({
-                books: booklist,
-                displayName: req.user ? req.user.displayName : ''
-            });
+            return res.json(
+                books = booklist
+            );
         }
     });
 };
