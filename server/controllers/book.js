@@ -58,10 +58,7 @@ module.exports.displayEditBook =  (req, res, next) => {
             res.end(err);
         } else {
             // show the edit view
-            return res.json({ 
-                book: bookToEdit,
-                displayName: req.user ? req.user.displayName : ''
-            });
+            return res.json(bookToEdit);
         }
     });
 };

@@ -19,5 +19,10 @@ export class RestDataSource {
     let backendRouterPath = 'book/list' // has to be same as on the backend server
     return this.http.get<Book[]>(this.baseUrl + backendRouterPath);
   }
+
+  getABook(id: string): Observable<Book> {
+    let backendRouterPath = 'book/'+id // has to be same as on the backend server
+    return this.http.get<Book>(this.baseUrl + backendRouterPath);
+  }
 }
 

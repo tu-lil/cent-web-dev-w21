@@ -4,8 +4,7 @@ import { BookstoreComponent } from './bookstore.component';
 import { BookUpdateComponent } from './book-update/book-update.component';
 import { BookAddComponent } from './book-add/book-add.component'
 import { ModelModule } from '../model/model.module';
-
-
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -15,7 +14,8 @@ import { ModelModule } from '../model/model.module';
   ],
   imports: [
     CommonModule,
-    ModelModule
+    ModelModule,
+    RouterModule
   ],
   exports: [
     BookstoreComponent

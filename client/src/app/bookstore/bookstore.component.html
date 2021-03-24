@@ -35,7 +35,7 @@
                             <td class="text-center">{{ book.price }}</td>
                             <!-- if (typeof displayName == 'string' && displayName) -->
                             <td class="text-center" scope="row">
-                                <a href="/books/update" class="btn btn-primary btn-sm"> <!-- /books[count]._id -->
+                                <a [routerLink]="['/books/update/', book._id]" class="btn btn-primary btn-sm"> <!-- /books[count]._id -->
                                     <i class="fas fa-pencil-alt"> Edit</i>
                                 </a>
                             </td>

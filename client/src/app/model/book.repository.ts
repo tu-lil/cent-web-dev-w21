@@ -5,6 +5,7 @@ import { RestDataSource } from './rest.datasource';
 @Injectable()
 export class BookRepository {
   private books: Book[] = [];
+  private book: Book;
 
   constructor(private dataSource: RestDataSource) {
     dataSource.getBooks().subscribe(data => {
@@ -15,4 +16,15 @@ export class BookRepository {
   getBooks(): Book[] {
     return [...this.books]
   }
+
+  getBookBy(id: string) {
+    this.dataSource.getABook(id).subscribe(data => {
+      this.book = data
+    });
+  }
+
+  getBook() {
+    return this.book
+  }
+
 }

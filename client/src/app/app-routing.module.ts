@@ -19,7 +19,7 @@ const routes: Routes = [
   {path: 'products', component: ProductsComponent},
   {path: 'books', component: BookstoreComponent},
   {path: 'books/add', component: BookAddComponent},
-  {path: 'books/update', component: BookUpdateComponent}
+  {path: 'books/update/:bookId', component: BookUpdateComponent}
 
 ];
 
