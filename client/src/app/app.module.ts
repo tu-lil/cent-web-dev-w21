@@ -1,6 +1,7 @@
 // like manifest for the whole app module/component
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { BookstoreModule } from './bookstore/bookstore.module'
@@ -31,7 +32,8 @@ import { ProductsComponent } from './pages/products/products.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BookstoreModule
+    BookstoreModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

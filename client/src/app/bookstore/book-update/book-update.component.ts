@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BookRepository } from '../../model/book.repository';
 import { Book } from '../../model/book.model';
 import { ActivatedRoute, ParamMap } from '@angular/router'
+import { NgForm } from '@angular/forms'
 
 @Component({
   selector: 'app-book-update',
@@ -18,6 +19,25 @@ export class BookUpdateComponent implements OnInit {
       this.bookId = paramMap.get('bookId');
       this.repository.getBookBy(this.bookId)
     });
+  }
+
+  onUpdateBook(form: NgForm) {
+    if(form.invalid){
+      return;
+    }
+
+    console.log(form)
+
+    let updatedBook = new Book ();
+    updatedBook._id = this.bookId;
+    updatedBook.name= form.value.name;
+    updatedBook.author= form.value.author;
+    updatedBook.description= form.value.description;
+    updatedBook.published= form.value.published;
+    updatedBook.price= form.value.price;
+
+    this.repository.updateBook(updatedBook);
+    form.resetForm();
   }
 
   get book(): Book {

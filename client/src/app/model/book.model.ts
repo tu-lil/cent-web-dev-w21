@@ -3,8 +3,8 @@ export class Book {
         public _id?: string,
         public name?: string,
         public author?: string,
-        public published?: String,
-        public description?: String,
-        public price?: number
+        public published?: string,
+        public description?: string,
+        public price?: string
     ){}
 }

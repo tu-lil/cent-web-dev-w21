@@ -5,6 +5,7 @@ import { BookUpdateComponent } from './book-update/book-update.component';
 import { BookAddComponent } from './book-add/book-add.component'
 import { ModelModule } from '../model/model.module';
 import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { RouterModule } from '@angular/router';
   imports: [
     CommonModule,
     ModelModule,
-    RouterModule
+    RouterModule,
+    FormsModule
   ],
   exports: [
     BookstoreComponent

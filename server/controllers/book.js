@@ -68,11 +68,11 @@ module.exports.processBookUpdate = (req, res, next) => {
     let id = req.params.id;
     let updatedBook = Book ({
         _id: id,
-        name: req.body.bookName,
-        author: req.body.bookAuthor,
-        description: req.body.bookDescription,
-        published: req.body.bookPublished,
-        price: req.body.bookPrice 
+        name: req.body.name,
+        author: req.body.author,
+        description: req.body.description,
+        published: req.body.published,
+        price: req.body.price 
     });
 
     Book.updateOne({_id: id}, updatedBook, (err) => {
@@ -81,7 +81,7 @@ module.exports.processBookUpdate = (req, res, next) => {
             res.end(err); 
         } else {
             // refresh booklist
-            res.redirect('/book/list');
+            return res.json(updatedBook);
         }
     });
 };

@@ -30,7 +30,7 @@ router.post('/add', requireAuth, bookController.processBookCreation);
 router.get('/:id', bookController.displayEditBook);
 
 /* POST router for the EDIT Book page - UPDATE */
-router.post('/edit/:id', requireAuth, bookController.processBookUpdate);
+router.post('/:id', bookController.processBookUpdate);
 
 /* GET router for the DELETE Book page - DELETE */
 router.get('/delete/:id', requireAuth, bookController.performBookDeletion);

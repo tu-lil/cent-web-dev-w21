@@ -24,5 +24,10 @@ export class RestDataSource {
     let backendRouterPath = 'book/'+id // has to be same as on the backend server
     return this.http.get<Book>(this.baseUrl + backendRouterPath);
   }
+
+  updateABook(book: Book): Observable<Book> {
+    let backendRouterPath = 'book/'+book._id  // has to be same as on the backend server
+    return this.http.post<Book>(this.baseUrl + backendRouterPath, book);
+  }
 }
 
