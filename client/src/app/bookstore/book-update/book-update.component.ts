@@ -25,9 +25,7 @@ export class BookUpdateComponent implements OnInit {
     if(form.invalid){
       return;
     }
-
-    console.log(form)
-
+    
     let updatedBook = new Book ();
     updatedBook._id = this.bookId;
     updatedBook.name= form.value.name;
