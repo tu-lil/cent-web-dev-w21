@@ -5,6 +5,6 @@ export class Book {
         public author?: string,
         public published?: string,
         public description?: string,
-        public price?: string
+        public price?: number
     ){}
 }
