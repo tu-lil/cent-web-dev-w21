@@ -20,11 +20,8 @@ function requireAuth(req, res, next) {
 /* GET router for the Book list page */
 router.get('/list', bookController.displayBookList);
 
-/* GET router for the ADD Book page - CREATE */
-router.get('/add', requireAuth, bookController.displayAddBook);
-
 /* POST router for the ADD Book page - CREATE */
-router.post('/add', requireAuth, bookController.processBookCreation);
+router.post('/add', bookController.processBookCreation);
 
 /* GET router for the EDIT Book page - UPDATE */
 router.get('/:id', bookController.displayEditBook);

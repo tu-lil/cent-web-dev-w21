@@ -21,22 +21,14 @@ module.exports.displayBookList = (req, res, next) => {
     });
 };
 
-/* GET router for the ADD Book page - CREATE */
-module.exports.displayAddBook =  (req, res, next) => {
-    res.render('book/add', {
-        title: 'New Book',
-        displayName: req.user ? req.user.displayName : ''
-    });
-};
-
 /* POST router for the ADD Book page - CREATE */
 module.exports.processBookCreation =  (req, res, next) => {
     let newBook = Book ({
-        name: req.body.bookName,
-        author: req.body.bookAuthor,
-        description: req.body.bookDescription,
-        published: req.body.bookPublished,
-        price: req.body.bookPrice 
+        name: req.body.name,
+        author: req.body.author,
+        description: req.body.description,
+        published: req.body.published,
+        price: req.body.price 
     });
     Book.create(newBook, (err) =>{
         if(err) {
@@ -44,7 +36,7 @@ module.exports.processBookCreation =  (req, res, next) => {
             res.end(err);
         } else {
             // refresh booklist
-            res.redirect('/book/list');
+            res.json(newBook);
         }
     });
 };

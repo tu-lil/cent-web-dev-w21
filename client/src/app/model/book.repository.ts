@@ -39,4 +39,13 @@ export class BookRepository {
     });
   }
 
+  createBook(book: Book) {
+    this.dataSource.createABook(book).subscribe(data => {
+      this.book = data
+      const updatedBooks = [...this.books];
+      updatedBooks.push(this.book);
+      this.books = updatedBooks;
+      this.router.navigate(['books']);
+    });
+  }
 }

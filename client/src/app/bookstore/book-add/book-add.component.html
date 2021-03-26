@@ -2,29 +2,29 @@
     <div class='bg-light p-5 rounded'>
         <div class="row">
             <div class="col-md-offset-3 col-md-12">
-                <form action="/book/add" method="POST">
+                <form (submit)="onCreateBook(postForm)" #postForm="ngForm">
                     <div class="form-group">
                         <label for="bookName">Book Title</label>
-                        <input type="text" class="form-control" name="bookName" id="bookName" required>
+                        <input type="text" class="form-control" name="name" ngModel #name="ngModel" required>
                     </div>
                     <div class="form-group">
                         <label for="bookAuthor">Author</label>
-                        <input type="text" class="form-control" name="bookAuthor" id="bookAuthor" required>
+                        <input type="text" class="form-control" name="author" ngModel #author="ngModel" required>
                     </div>
                     <div class="form-group">
                         <label for="bookPublished">Book Published</label>
-                        <input type="text" class="form-control" name="bookPublished" id="bookPublished" required>
+                        <input type="text" class="form-control" name="published" ngModel #published="ngModel" required>
                     </div>
                     <div class="form-group">
                         <label for="bookDescription">Description</label>
-                        <textarea class="form-control" name="bookDescription" id="bookDescription" required></textarea>
+                        <textarea class="form-control" name="description" ngModel #description="ngModel" required></textarea>
                     </div>
                     <div class="form-group">
                         <label for="bookPrice">Price</label>
-                        <input type="text" class="form-control" name="bookPrice" id="bookPrice" required>
+                        <input type="text" class="form-control" name="price" ngModel #price="ngModel" required>
                     </div>
                     <button type="submit" class="btn btn-primary m-3">Add New Book</button>
-                    <button href="/books" class="btn btn-warning m-3">Cancel</button>
+                    <button [routerLink]="['/books']" class="btn btn-warning m-3">Cancel</button>
                 </form>
             </div>
         </div>
