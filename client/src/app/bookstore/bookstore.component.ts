@@ -19,4 +19,8 @@ export class BookstoreComponent implements OnInit {
   get books(): Book[] {
     return this.repository.getBooks();
   }
+
+  onDeleteBook(id: string) {
+    return this.repository.deleteBookBy(id);
+  }
 }

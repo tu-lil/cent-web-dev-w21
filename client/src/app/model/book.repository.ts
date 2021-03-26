@@ -48,4 +48,11 @@ export class BookRepository {
       this.router.navigate(['books']);
     });
   }
+
+  deleteBookBy(id: string) {
+    this.dataSource.deleteABook(id).subscribe(response => {
+      const updatedBooks = this.books.filter(book => book._id !== response);
+      this.books = [...updatedBooks]
+    });
+  }
 }

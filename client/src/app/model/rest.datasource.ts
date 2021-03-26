@@ -35,5 +35,10 @@ export class RestDataSource {
     return this.http.post<Book>(this.baseUrl + backendRouterPath, book);
   }
  
+  deleteABook(id: string) {
+    let backendRouterPath = 'book/delete/'+id // has to be same as on the backend server
+    return this.http.delete(this.baseUrl + backendRouterPath);
+  }
+
 }
 

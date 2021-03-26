@@ -88,7 +88,7 @@ module.exports.performBookDeletion =  (req, res, next) => {
             res.end(err);
         } else {
             // refresh book list
-            res.redirect('/book/list');
+            res.json(id);
         }
     });
 };

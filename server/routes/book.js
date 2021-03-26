@@ -30,6 +30,7 @@ router.get('/:id', bookController.displayEditBook);
 router.post('/:id', bookController.processBookUpdate);
 
 /* GET router for the DELETE Book page - DELETE */
-router.get('/delete/:id', requireAuth, bookController.performBookDeletion);
+
+router.delete('/delete/:id', bookController.performBookDeletion);
 
 module.exports = router;

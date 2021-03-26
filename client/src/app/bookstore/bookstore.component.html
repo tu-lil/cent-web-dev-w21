@@ -40,9 +40,7 @@
                                 </a>
                             </td>
                             <td class="text-center" scope="row">
-                                <a href="/book/delete/books[count]._id" class="btn btn-danger btn-sm">
-                                    <i class="fas fa-trash-alt"> Delete</i>
-                                </a>
+                                <button (click)="onDeleteBook(book._id)" class="btn btn-danger m-3"> Delete</button>
                             </td>
                             <!-- if close -->
                     </tr>
