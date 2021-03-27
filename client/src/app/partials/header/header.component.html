@@ -31,6 +31,10 @@
         <li class="nav-item">
           <a class="nav-link" aria-current="page" href="/contact"><i class="fas fa-lg fa-id-badge"></i> Contact Us </a>
         </li>
+        
+        <li *ngIf='!isLoggedIn()' class="nav-item">
+          <a class="nav-link" routerLink="/login"><i class="fas fa-lg fa-sign-in-alt"></i> Login </a>
+        </li>
       </ul>
     </div>
   </div>

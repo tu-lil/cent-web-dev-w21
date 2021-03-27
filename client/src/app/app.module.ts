@@ -16,6 +16,12 @@ import { AboutComponent } from './pages/about/about.component';
 import { ContactUsComponent } from './pages/contact-us/contact-us.component';
 import { ProductsComponent } from './pages/products/products.component';
 
+import { JwtModule, JwtHelperService, JwtInterceptor } from '@auth0/angular-jwt';
+
+export function jwtTokenGetter(): string {
+  return localStorage.getItem('id_token');
+}
+
 // decorator
 @NgModule({
   declarations: [
@@ -31,7 +37,12 @@ import { ProductsComponent } from './pages/products/products.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BookstoreModule
+    BookstoreModule,
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: jwtTokenGetter
+      }
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

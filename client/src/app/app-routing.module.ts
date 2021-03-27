@@ -19,8 +19,9 @@ const routes: Routes = [
   {path: 'products', component: ProductsComponent},
   {path: 'books', component: BookstoreComponent},
   {path: 'books/add', component: BookAddComponent},
-  {path: 'books/update/:bookId', component: BookUpdateComponent}
-
+  {path: 'books/update/:bookId', component: BookUpdateComponent},
+  {path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)},
+  {path: 'login', data: {title: 'Login'}, redirectTo: '/admin/auth', pathMatch: 'full'}
 ];
 
 @NgModule({

@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Book } from './book.model';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { User } from './user.model';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 
 const PROTOCOL = 'http';
 const PORT = 3000; // port as on your backend server
@@ -10,8 +13,18 @@ const PORT = 3000; // port as on your backend server
 @Injectable()
 export class RestDataSource {
   baseUrl: string;
+  authToken: string;
+  user: User;
 
-  constructor(private http: HttpClient) {
+  private httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
+    'Access-control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept'
+    })
+  };
+
+  constructor(private http: HttpClient, private jwtService: JwtHelperService) {
     this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;
   }
 
@@ -38,6 +51,21 @@ export class RestDataSource {
   deleteABook(id: string) {
     let backendRouterPath = 'book/delete/'+id // has to be same as on the backend server
     return this.http.delete(this.baseUrl + backendRouterPath);
+  }
+
+  storeUserData(token: any, user: User): void {
+    localStorage.setItem('id_token', 'Bearer ' + token);
+    localStorage.setItem('user', JSON.stringify(user));
+    this.authToken = token;
+    this.user = user;
+  }
+
+  loggedIn(): boolean {
+    return !this.jwtService.isTokenExpired(this.authToken);
+  }
+
+  authenticate(user: User): Observable<any> {
+    return this.http.post<any>(this.baseUrl + 'login', user, this.httpOptions);
   }
 
 }

@@ -71,7 +71,7 @@ module.exports.processLoginPage = (req, res, next) => {
         // is there is user login error?
         if(!user){
             req.flash('loginMessage', 'Authentication Error');
-            return res.redirect('/login');
+            return res.json({success: false, msg: 'something is wrong'})
         }
         req.login(user, (err) => {
             // server error?
@@ -89,16 +89,12 @@ module.exports.processLoginPage = (req, res, next) => {
                 expiresIn: 604800 // 1 week
             });
 
-               /* TODO - Getting Ready to convert to API
-            res.json({success: true, msg: 'User Logged in Successfully!', user: {
+            return res.json({success: true, msg: 'User Logged in Successfully!', user: {
                 id: user._id,
                 displayName: user.displayName,
                 username: user.username,
                 email: user.email
             }, token: authToken});
-            */
-
-            return res.redirect('/book/list');
         });
     })(req, res, next);
 };
