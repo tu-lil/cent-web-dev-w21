@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../model/auth.service';
 import { User } from '../../model/user.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -10,7 +11,7 @@ import { User } from '../../model/user.model';
 export class HeaderComponent implements OnInit {
   user: User;
 
-  constructor(private authService: AuthService) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
     this.user = new User();
@@ -22,6 +23,12 @@ export class HeaderComponent implements OnInit {
       this.user = JSON.parse(localStorage.getItem('user'));
     }
     return result;
+  }
+
+  onLogoutClick(): void {
+    this.authService.logout().subscribe(data => {
+      this.router.navigate(['/login']);
+    });
   }
 
 }
