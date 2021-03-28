@@ -12,9 +12,9 @@ const PORT = 3000; // port as on your backend server
 // this is to connect to your backend server
 @Injectable()
 export class RestDataSource {
-  baseUrl: string;
-  authToken: string;
-  user: User;
+  private baseUrl: string;
+  private authToken: string;
+  private user: User;
 
   private httpOptions = {
   headers: new HttpHeaders({
@@ -29,28 +29,33 @@ export class RestDataSource {
   }
 
   getBooks(): Observable<Book[]> {
+    this.loadToken();
     let backendRouterPath = 'book/list' // has to be same as on the backend server
-    return this.http.get<Book[]>(this.baseUrl + backendRouterPath);
+    return this.http.get<Book[]>(this.baseUrl + backendRouterPath,  this.httpOptions);
   }
 
   getABook(id: string): Observable<Book> {
+    this.loadToken();
     let backendRouterPath = 'book/'+id // has to be same as on the backend server
-    return this.http.get<Book>(this.baseUrl + backendRouterPath);
+    return this.http.get<Book>(this.baseUrl + backendRouterPath,  this.httpOptions);
   }
 
   updateABook(book: Book): Observable<Book> {
+    this.loadToken();
     let backendRouterPath = 'book/'+book._id  // has to be same as on the backend server
-    return this.http.post<Book>(this.baseUrl + backendRouterPath, book);
+    return this.http.post<Book>(this.baseUrl + backendRouterPath, book,  this.httpOptions);
   }
 
   createABook(book: Book): Observable<Book> {
+    this.loadToken();
     let backendRouterPath = 'book/add'  // has to be same as on the backend server
-    return this.http.post<Book>(this.baseUrl + backendRouterPath, book);
+    return this.http.post<Book>(this.baseUrl + backendRouterPath, book,  this.httpOptions);
   }
  
   deleteABook(id: string) {
+    this.loadToken();
     let backendRouterPath = 'book/delete/'+id // has to be same as on the backend server
-    return this.http.delete(this.baseUrl + backendRouterPath);
+    return this.http.delete(this.baseUrl + backendRouterPath, this.httpOptions);
   }
 
   storeUserData(token: any, user: User): void {
@@ -74,6 +79,14 @@ export class RestDataSource {
     localStorage.clear();
 
     return this.http.get<any>(this.baseUrl + 'logout', this.httpOptions);
+  }
+
+  private loadToken(): void {
+    const token = localStorage.getItem('id_token');
+    if(token){
+      this.authToken = token;
+      this.httpOptions.headers = this.httpOptions.headers.set('Authorization', this.authToken);
+    }
   }
 
 }

@@ -1,36 +1,25 @@
 let express = require('express');
 let router = express.Router();
-
 let passport = require('passport')
 
 let bookController = require('../controllers/book');
 
 
-// helper function for route guard purposes
-function requireAuth(req, res, next) {
-    //check if user is logged in
-    if(!req.isAuthenticated()){
-        return res.redirect('/login');
-    }
-    next();
-}
-
-
 
 /* GET router for the Book list page */
-router.get('/list', bookController.displayBookList);
+router.get('/list', passport.authenticate('jwt', {session: false}), bookController.displayBookList);
 
 /* POST router for the ADD Book page - CREATE */
-router.post('/add', bookController.processBookCreation);
+router.post('/add', passport.authenticate('jwt', {session: false}), bookController.processBookCreation);
 
 /* GET router for the EDIT Book page - UPDATE */
-router.get('/:id', bookController.displayEditBook);
+router.get('/:id', passport.authenticate('jwt', {session: false}), bookController.displayEditBook);
 
 /* POST router for the EDIT Book page - UPDATE */
-router.post('/:id', bookController.processBookUpdate);
+router.post('/:id', passport.authenticate('jwt', {session: false}), bookController.processBookUpdate);
 
 /* GET router for the DELETE Book page - DELETE */
 
-router.delete('/delete/:id', bookController.performBookDeletion);
+router.delete('/delete/:id', passport.authenticate('jwt', {session: false}), bookController.performBookDeletion);
 
 module.exports = router;
