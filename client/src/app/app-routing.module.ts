@@ -8,6 +8,7 @@ import { ProductsComponent } from './pages/products/products.component';
 import { BookstoreComponent } from './bookstore/bookstore.component'
 import { BookUpdateComponent } from './bookstore/book-update/book-update.component';
 import { BookAddComponent } from './bookstore/book-add/book-add.component';
+import { StoreFirstGuard } from './guards/storeFirst.guard';
 
 
 const routes: Routes = [
@@ -16,9 +17,9 @@ const routes: Routes = [
   {path: 'services', component: ServicesComponent},
   {path: 'contact', component: ContactUsComponent},
   {path: 'products', component: ProductsComponent},
-  {path: 'books', component: BookstoreComponent},
-  {path: 'books/add', component: BookAddComponent},
-  {path: 'books/update/:bookId', component: BookUpdateComponent},
+  {path: 'books', component: BookstoreComponent, canActivate: [StoreFirstGuard]},
+  {path: 'books/add', component: BookAddComponent, canActivate: [StoreFirstGuard]},
+  {path: 'books/update/:bookId', component: BookUpdateComponent, canActivate: [StoreFirstGuard]},
   {path: 'admin', loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)},
   {path: 'login', data: {title: 'Login'}, redirectTo: '/admin/auth', pathMatch: 'full'},
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -27,6 +28,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [ StoreFirstGuard]
 })
 export class AppRoutingModule { }
