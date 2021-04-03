@@ -6,7 +6,7 @@ import { User } from './user.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
-const PROTOCOL = 'http';
+const PROTOCOL = 'https';
 const PORT = 3000; // port as on your backend server
 
 // this is to connect to your backend server
