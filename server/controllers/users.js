@@ -9,57 +9,9 @@ let DB = require('../config/db');
 let usermodel = require('../models/user');
 let User = usermodel.User;
 
-
-module.exports.displayHomePage = (req, res, next) => {
-    res.render('index', 
-    { 
-      title: 'Home',
-      displayName: req.user ? req.user.displayName : ''
-    });
-};
-
-  /* GET about page. */
-  module.exports.displayAboutPage = (req, res, next) => {
-    res.render('index', 
-    { 
-      title: 'About',
-      displayName: req.user ? req.user.displayName : ''
-    });
-  };
-  
-  /* GET products page. */
-  module.exports.displayProductsPage =(req, res, next) => {
-    res.render('index', 
-    { 
-      title: 'Products',
-      displayName: req.user ? req.user.displayName : ''
-    });
-  };
-  
-  /* GET services page. */
-  module.exports.displayServicesPage = (req, res, next) => {
-    res.render('index', 
-    { 
-      title: 'Services',
-      displayName: req.user ? req.user.displayName : ''
-    });
-  };
-
-  module.exports.displayLoginPage = (req, res, next) => {
-      // check if the user is already logged in
-      if(!req.user){
-          res.render('auth/login',
-          { 
-            title: 'Login',
-            messages: req.flash('loginMessage'),
-            displayName: req.user ? req.user.displayName : ''
-          });
-      } else {
-          return res.redirect('/');
-      }
-};
-
 module.exports.processLoginPage = (req, res, next) => {
+    console.log('kkkkkkkk')
+
     passport.authenticate('local', 
     (err, user, info) => {
         console.log(err)

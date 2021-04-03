@@ -22,6 +22,8 @@ export class AuthComponent implements OnInit {
 
   authenticate(form: NgForm): void {
     if (form.valid) {
+      console.log('jjjjjj')
+
       // perform authentication
       this.auth.authenticate(this.user).subscribe(data => {
         if (data.success) {

@@ -9,7 +9,8 @@ let DB = require('../config/db');
 let Book = require('../models/book');
 
 /* GET router for the Book list page */
-module.exports.displayBookList = (req, res, next) => {
+module.exports.getBookList = (req, res, next) => {
+    console.log('ppppppp')
     Book.find((err, booklist) => {
         if(err){
             return console.error(err);
@@ -42,7 +43,7 @@ module.exports.processBookCreation =  (req, res, next) => {
 };
 
 /* GET router for the EDIT Book page - UPDATE */
-module.exports.displayEditBook =  (req, res, next) => {
+module.exports.getABook =  (req, res, next) => {
     let id = req.params.id;
     Book.findById(id, (err, bookToEdit) =>{
         if(err) {

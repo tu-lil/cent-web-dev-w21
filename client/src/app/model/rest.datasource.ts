@@ -59,7 +59,7 @@ export class RestDataSource {
   }
 
   storeUserData(token: any, user: User): void {
-    localStorage.setItem('id_token', 'Bearer ' + token);
+    localStorage.setItem('id_token', token);
     localStorage.setItem('user', JSON.stringify(user));
     this.authToken = token;
     this.user = user;
@@ -70,7 +70,9 @@ export class RestDataSource {
   }
 
   authenticate(user: User): Observable<any> {
-    return this.http.post<any>(this.baseUrl + 'login', user, this.httpOptions);
+    console.log('ddddddd')
+
+    return this.http.post<any>(this.baseUrl + 'users/login', user, this.httpOptions);
   }
 
   logout(): Observable<any> {
@@ -78,7 +80,7 @@ export class RestDataSource {
     this.user = null;
     localStorage.clear();
 
-    return this.http.get<any>(this.baseUrl + 'logout', this.httpOptions);
+    return this.http.get<any>(this.baseUrl + 'users/logout', this.httpOptions);
   }
 
   private loadToken(): void {
