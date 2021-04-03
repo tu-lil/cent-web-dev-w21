@@ -6,7 +6,7 @@
 
 let app = require('./server/config/app');
 let debug = require('debug')('cent-web-dev-w21:server');
-let http = require('https');
+let http = require('http');
 
 /**
  * Get port from environment and store in Express.
