@@ -70,8 +70,6 @@ export class RestDataSource {
   }
 
   authenticate(user: User): Observable<any> {
-    console.log('ddddddd')
-
     return this.http.post<any>(this.baseUrl + 'users/login', user, this.httpOptions);
   }
 
