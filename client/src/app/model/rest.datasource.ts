@@ -56,7 +56,6 @@ export class RestDataSource {
   }
 
   storeUserData(token: any, user: User): void {
-    console.log('dddddd in storeUserData rest service')
     localStorage.setItem('id_token', token);
     localStorage.setItem('user', JSON.stringify(user));
     this.authToken = token;
@@ -68,8 +67,6 @@ export class RestDataSource {
   }
 
   authenticate(user: User): Observable<any> {
-    console.log('llllllll authenticate rest service')
-    console.log(location.hostname)
     return this.http.post<any>(this.baseUrl + 'users/login', user, this.httpOptions);
   }
 

@@ -16,14 +16,10 @@ export class AuthService {
   }
 
   authenticate(user: User): Observable<any> {
-    console.log("auth service hhhh")
-
     return this.datasource.authenticate(user);
   }
 
   storeUserData(token: any, user: User): void {
-    console.log("store data in auth service")
-
     this.datasource.storeUserData(token, user);
   }
 

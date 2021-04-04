@@ -22,18 +22,10 @@ export class AuthComponent implements OnInit {
 
   authenticate(form: NgForm): void {
     if (form.valid) {
-      console.log('jjjjjj 1 ')
-
       // perform authentication
       this.auth.authenticate(this.user).subscribe(data => {
-        console.log('jjjjjj 2 ')
-        console.log(data)
-
-
         if (data.success) {
           this.auth.storeUserData(data.token, data.user);
-          console.log('jjjjjj 3 ')
-
           this.router.navigateByUrl('books');
         }
       });
