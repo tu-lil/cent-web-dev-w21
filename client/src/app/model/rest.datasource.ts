@@ -4,18 +4,12 @@ import { Book } from './book.model';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { User } from './user.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-
-
-const HTTPS_PROTOCOL = 'https';
-const HTTP_PROTOCOL = 'http';
-
-const PORT = ''; // port as on your backend server
+import { environment } from "../../environments/environment";
 
 // this is to connect to your backend server
 @Injectable()
 export class RestDataSource {
   private baseUrl: string;
-  private secureBaseUrl: string;
   private authToken: string;
   private user: User;
 
@@ -28,9 +22,7 @@ export class RestDataSource {
   };
 
   constructor(private http: HttpClient, private jwtService: JwtHelperService) {
-    this.baseUrl = `${HTTPS_PROTOCOL}://${location.hostname}:${PORT}/`;
-   // this.secureBaseUrl = `${HTTP_PROTOCOL}://${location.hostname}:${PORT}/`;
-
+    this.baseUrl = `${environment.backendUrl}`;
   }
 
   getBooks(): Observable<Book[]> {
