@@ -6,13 +6,16 @@ import { User } from './user.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
-const PROTOCOL = 'https';
+const HTTPS_PROTOCOL = 'https';
+const HTTP_PROTOCOL = 'http';
+
 const PORT = 3000; // port as on your backend server
 
 // this is to connect to your backend server
 @Injectable()
 export class RestDataSource {
   private baseUrl: string;
+  private secureBaseUrl: string;
   private authToken: string;
   private user: User;
 
@@ -25,7 +28,9 @@ export class RestDataSource {
   };
 
   constructor(private http: HttpClient, private jwtService: JwtHelperService) {
-    this.baseUrl = `${PROTOCOL}://${location.hostname}:${PORT}/`;
+    this.baseUrl = `${HTTPS_PROTOCOL}://${location.hostname}:${PORT}/`;
+   // this.secureBaseUrl = `${HTTP_PROTOCOL}://${location.hostname}:${PORT}/`;
+
   }
 
   getBooks(): Observable<Book[]> {
@@ -59,6 +64,7 @@ export class RestDataSource {
   }
 
   storeUserData(token: any, user: User): void {
+    console.log('dddddd in storeUserData rest service')
     localStorage.setItem('id_token', token);
     localStorage.setItem('user', JSON.stringify(user));
     this.authToken = token;
@@ -70,6 +76,8 @@ export class RestDataSource {
   }
 
   authenticate(user: User): Observable<any> {
+    console.log('llllllll authenticate rest service')
+    console.log(location.hostname)
     return this.http.post<any>(this.baseUrl + 'users/login', user, this.httpOptions);
   }
 
