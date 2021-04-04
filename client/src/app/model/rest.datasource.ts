@@ -9,7 +9,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 const HTTPS_PROTOCOL = 'https';
 const HTTP_PROTOCOL = 'http';
 
-const PORT = 3000; // port as on your backend server
+const PORT = ''; // port as on your backend server
 
 // this is to connect to your backend server
 @Injectable()
