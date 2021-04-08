@@ -31,7 +31,6 @@
     "passport-jwt": "^4.0.0",
     "passport-local": "^1.0.0",
     "passport-local-mongoose": "^6.1.0",
-    "popper": "^1.0.1",
     "popper.js": "^1.16.1"
   },
   "description": "sample app for portfolio website",
