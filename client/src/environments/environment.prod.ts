@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  backendUrl: "https://web-app-w21-a3.herokuapp.com/"
 };
