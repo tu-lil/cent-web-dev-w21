@@ -32,7 +32,6 @@ mongodb.once('open', ()=>{
 });
 
 let indexRouter = require('../routes/index');
-let usersRouter = require('../routes/users');
 let contactRouter = require('../routes/contact');
 let booksRouter = require('../routes/book');
 
@@ -49,6 +48,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, '../../public')));
 app.use(express.static(path.join(__dirname, '../../node_modules')));
+app.use('/', express.static(path.join(__dirname, '../../public/bookstore/')));
+
 
 app.use(cors());
 
@@ -91,10 +92,13 @@ let strategy = new JWTStrategy(jwtOptions, (jwt_payload, done) => {
 passport.use(strategy);
 
 // routing
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
+app.use('/users', indexRouter);
 app.use('/contact', contactRouter);
 app.use('/book', booksRouter);
+app.use((req, res, next) => {
+  res.sendFile(path.join(__dirname, '../../public/bookstore/index.html'))
+ });
+ 
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
